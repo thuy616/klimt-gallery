@@ -1,69 +1,75 @@
-const express = require('express')
-const debug = require('debug')('app:server')
-const path = require('path')
-const webpack = require('webpack')
-const webpackConfig = require('../config/webpack.config')
-const project = require('../config/project.config')
-const compress = require('compression')
+import Koa from 'koa'
+import convert from 'koa-convert'
+import webpack from 'webpack'
+import webpackConfigClient from '../build/webpack.config.client'
+import serve from 'koa-static'
+import proxy from 'koa-proxy'
+import fs from 'fs-extra'
+import _debug from 'debug'
+import config from '../config'
+import webpackDevMiddleware from './middleware/webpack-dev'
+import webpackHMRMiddleware from './middleware/webpack-hmr'
+import universalMiddleware from './middleware/universal'
 
-const app = express()
+const debug = _debug('app:server')
+const paths = config.utils_paths
 
-// Apply gzip compression
-app.use(compress())
+export default async () => {
+  const app = new Koa()
+  var clientInfo
 
-// ------------------------------------
-// Apply Webpack HMR Middleware
-// ------------------------------------
-if (project.env === 'development') {
-  const compiler = webpack(webpackConfig)
+  // Enable koa-proxy if it has been enabled in the config.
+  if (config.proxy && config.proxy.enabled) {
+    app.use(convert(proxy(config.proxy.options)))
+  }
 
-  debug('Enabling webpack dev and HMR middleware')
-  app.use(require('webpack-dev-middleware')(compiler, {
-    publicPath  : webpackConfig.output.publicPath,
-    contentBase : project.paths.client(),
-    hot         : true,
-    quiet       : project.compiler_quiet,
-    noInfo      : project.compiler_quiet,
-    lazy        : false,
-    stats       : project.compiler_stats
-  }))
-  app.use(require('webpack-hot-middleware')(compiler, {
-    path: '/__webpack_hmr'
-  }))
+  // ------------------------------------
+  // Apply Webpack HMR Middleware
+  // ------------------------------------
+  if (config.env === 'development') {
+    const compiler = webpack(webpackConfigClient)
 
-  // Serve static assets from ~/public since Webpack is unaware of
-  // these files. This middleware doesn't need to be enabled outside
-  // of development since this directory will be copied into ~/dist
-  // when the application is compiled.
-  app.use(express.static(project.paths.public()))
+    // Enable webpack-dev and webpack-hot middleware
+    const { publicPath } = webpackConfigClient.output
 
-  // This rewrites all routes requests to the root /index.html file
-  // (ignoring file requests). If you want to implement universal
-  // rendering, you'll want to remove this middleware.
-  app.use('*', function (req, res, next) {
-    const filename = path.join(compiler.outputPath, 'index.html')
-    compiler.outputFileSystem.readFile(filename, (err, result) => {
-      if (err) {
-        return next(err)
+    // Catch the hash of the build in order to use it in the universal middleware
+    compiler.plugin('done', stats => {
+      // Create client info from the fresh build
+      clientInfo = {
+        assetsByChunkName: {
+          app: `app.${stats.hash}.js`,
+          vendor: `vendor.${stats.hash}.js`
+        }
       }
-      res.set('content-type', 'text/html')
-      res.send(result)
-      res.end()
     })
-  })
-} else {
-  debug(
-    'Server is being run outside of live development mode, meaning it will ' +
-    'only serve the compiled application bundle in ~/dist. Generally you ' +
-    'do not need an application server for this and can instead use a web ' +
-    'server such as nginx to serve your static files. See the "deployment" ' +
-    'section in the README for more information on deployment strategies.'
-  )
 
-  // Serving ~/dist by default. Ideally these files should be served by
-  // the web server and not the app server, but this helps to demo the
-  // server in production.
-  app.use(express.static(project.paths.dist()))
+    app.use(webpackDevMiddleware(compiler, publicPath))
+    app.use(webpackHMRMiddleware(compiler))
+
+    // Serve static assets from ~/src/static since Webpack is unaware of
+    // these files. This middleware doesn't need to be enabled outside
+    // of development since this directory will be copied into ~/dist
+    // when the application is compiled.
+    app.use(serve(paths.src('static')))
+  } else {
+    // Get assets from client_info.json
+    debug('Read client info.')
+    fs.readJSON(paths.dist(config.universal.client_info), (err, data) => {
+      if (err) {
+        debug('Failed to read client_data!')
+        throw Error(err)
+      }
+      clientInfo = data
+    })
+
+    // Serving ~/dist by default. Ideally these files should be served by
+    // the web server and not the app server when universal is turned off,
+    // but this helps to demo the server in production.
+    app.use(serve(paths.public()))
+  }
+
+  let um = await universalMiddleware()
+  app.use(um.default(() => clientInfo))
+
+  return app
 }
-
-module.exports = app
