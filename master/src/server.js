@@ -93,7 +93,7 @@ server.ext("onPreResponse", (request, reply) => {
     const webserver = process.env.NODE_ENV === "production"
       ? ""
       : `//localhost:${port}`;
-    const title = DocumentTitle.rewind() || 'Descript';
+    const title = DocumentTitle.rewind() || 'Gustav Klimt';
     let output = (`<!doctype html>
     <html lang="en-us">
       <head>
