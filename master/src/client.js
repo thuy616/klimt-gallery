@@ -7,22 +7,19 @@ import initLoadCss from './components/Common/load-css';
 import routes from './routes';
 import configureStore from "./store.js";
 import { syncHistoryWithStore } from 'react-router-redux';
-import cookie from 'react-cookie';
-import { AuthenticateUser } from './actions/types';
 import creativeJS from './components/Common/creative';
 
 // Init translation system
 initTranslation();
 // Init css loader (for themes)
 initLoadCss();
+// Init scroll reveal
+creativeJS();
 
 const store = configureStore(window.__INITIAL_STATE__);
 delete window.__INITIAL_STATE__;
 const reactRoot = document.getElementById('app');
-let auth = cookie.load('auth');
-if (auth) {
-  store.dispatch({ type: AuthenticateUser });
-}
+
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(

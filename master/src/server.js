@@ -108,7 +108,7 @@ server.ext("onPreResponse", (request, reply) => {
         <link rel="icon" href="${webserver}/img/favicon.png"/>
       </head>
       <body id="page-top">
-        <div>${reactString}</div>
+        ${reactString}
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
           window.__UA__ = ${JSON.stringify(request.headers['user-agent'])}

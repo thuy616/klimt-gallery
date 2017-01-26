@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ContentWrapper from '../../components/Layout/ContentWrapper';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';

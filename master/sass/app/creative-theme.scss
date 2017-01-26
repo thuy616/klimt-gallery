@@ -414,3 +414,9 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
+.wrapper {
+  height: 100%;
+  .content-wrapper {
+    height: 100%;
+  }
+}
