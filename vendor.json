@@ -13,5 +13,8 @@
   "bower_components/jquery-localize-i18n/dist/jquery.localize.js",
   "bower_components/simple-line-icons/css/simple-line-icons.css",
   "bower_components/simple-line-icons/fonts/*",
-  "bower_components/loaders.css/loaders.css"
+  "bower_components/loaders.css/loaders.css",
+  "bower_components/scrollreveal/dist/scrollreveal.min.js",
+  "bower_components/magnific-popup/dist/magnific-popup.css",
+  "bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"
 ]

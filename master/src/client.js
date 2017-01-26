@@ -9,6 +9,7 @@ import configureStore from "./store.js";
 import { syncHistoryWithStore } from 'react-router-redux';
 import cookie from 'react-cookie';
 import { AuthenticateUser } from './actions/types';
+import creativeJS from './components/Common/creative';
 
 // Init translation system
 initTranslation();

@@ -102,13 +102,13 @@ server.ext("onPreResponse", (request, reply) => {
         <meta name="description" content="">
         <meta name="keywords" content="">
         <title>${title}</title>
-        <link rel="stylesheet" href="${webserver}/css/vendor.bundle.css"/>
         <link rel="stylesheet" href="${webserver}/css/bootstrap.css"/>
+        <link rel="stylesheet" href="${webserver}/css/vendor.bundle.css"/>
         <link rel="stylesheet" href="${webserver}/css/app.css"/>
         <link rel="icon" href="${webserver}/img/favicon.png"/>
       </head>
-      <body>
-        <div id="app">${reactString}</div>
+      <body id="page-top">
+        <div>${reactString}</div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
           window.__UA__ = ${JSON.stringify(request.headers['user-agent'])}

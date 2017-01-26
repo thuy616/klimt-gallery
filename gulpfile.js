@@ -247,10 +247,10 @@ gulp.task('server-assets', function() {
 gulp.task('watch', function() {
     log('Watching source files..');
 
+    gulp.watch(vendor.source, ['vendor']);
     gulp.watch(source.scripts.app, ['scripts:app']);
     gulp.watch(source.styles.watch, ['styles:app', 'styles:app:rtl']);
     gulp.watch(source.styles.themes, ['styles:themes']);
-    gulp.watch(vendor.source, ['vendor']);
 
 });
 
