@@ -1,31 +1,46 @@
 import React, {Component} from 'react';
-
+import {Row, Col} from 'react-bootstrap';
 export default class SingleView extends Component {
-
   render() {
     return (
       <div className="content-wrapper">
         <header>
-          <div className="header-content">
-            <div className="header-content-inner">
-              <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
-              <hr/>
-              <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+          <div className="rslides_container">
+          <ul className="rslides centered-btns centered-btns1">
+            <li className="img-overlay"><img src="../img/header/header-1.jpg" alt="img1"/></li>
+            <li className="img-overlay"><img src="../img/header/header-2.jpg" alt="img2"/></li>
+            <li className="img-overlay"><img src="../img/header/header-3.jpg" alt="img3"/></li>
+          </ul>
+          <a href="#" className="centered-btns_nav centered-btns1_nav prev">Previous</a>
+          <a href="#" className="centered-btns_nav centered-btns1_nav next">Next</a>
+
+          </div>
+           <div className="header-content">
+            {/* <div className="header-content-inner">
+              <h2 className="text-faded">"Art is a line around your thoughts."</h2>
+              <h1 id="homeHeading">Gustav Klimt</h1>
               <a href="#about" className="btn btn-circle page-scroll"><i className="fa fa-angle-double-down animated"></i></a>
-            </div>
+            </div> */}
           </div>
         </header>
-        <section className="bg-primary" id="about">
+        <section className="bg-dark" id="about">
           <div className="container">
-            <div className="row">
-              <div className="col-lg-8 col-lg-offset-2 text-center">
-                <h2 className="section-heading">We've got what you need!</h2>
+            <Row>
+              <Col lg={8} lgOffset={2} className="text-center">
+                <h2 className="section-heading">1862-1890</h2>
+                <h3>Early life and Education</h3>
                 <hr className="light"/>
-                <p className="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                <a href="#services" className="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
-              </div>
-            </div>
+              </Col>
+            </Row>
           </div>
+        </section>
+        <section>
+          <div className="container">
+            <div className="parallax-window" data-parallax="scroll" data-image-src="../../img/home/the-kiss@2x.jpg"></div>
+          </div>
+        </section>
+        <section className="bg-primary">
+          <div className="container"></div>
         </section>
         <section id="services">
           <div className="container">

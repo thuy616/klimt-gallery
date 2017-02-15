@@ -1,6 +1,4 @@
-(function($, window, document) {
-    "use strict"; // Start of use strict
-
+export default () => {
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
@@ -26,7 +24,21 @@
         offset: {
             top: 100
         }
-    })
+    });
+
+    $(".rslides").responsiveSlides({
+      auto: true,             // Boolean: Animate automatically, true or false
+      speed: 300,            // Integer: Speed of the transition, in milliseconds
+      timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+      pager: false,           // Boolean: Show pager, true or false
+      nav: true,             // Boolean: Show navigation, true or false
+      random: false,          // Boolean: Randomize the order of the slides, true or false
+      pause: false,           // Boolean: Pause on hover, true or false
+      pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+      namespace: "rslides",   // String: Change the default namespace used
+      before: function(){},   // Function: Before callback
+      after: function(){}     // Function: After callback
+    });
 
     // Initialize and Configure Scroll Reveal Animation
     window.sr = ScrollReveal();
@@ -61,4 +73,4 @@
         }
     });
 
-})(jQuery, window, document); // End of use strict
+}

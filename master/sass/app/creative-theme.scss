@@ -13,6 +13,7 @@ body {
   height: 100%;
   width: 100%;
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  color: white;
 }
 
 hr {
@@ -20,7 +21,7 @@ hr {
   border-width: 3px;
   max-width: 50px;
   &.light {
-    border-color: white;
+    border-color: $brand-yellow;
   }
 }
 
@@ -39,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   margin-bottom: 20px;
 }
@@ -49,12 +50,12 @@ p {
 }
 
 .bg-dark {
-  background-color: #222222;
-  color: white;
+  background-color: $brand-dark;
+  color: $brand-yellow
 }
 
 .text-faded {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba($brand-yellow, 0.85);
 }
 
 section {
@@ -123,7 +124,7 @@ aside {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $screen-md-min) {
   .navbar-default {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
@@ -172,14 +173,14 @@ header {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-image: url('../img/header.jpg');
+  background: $brand-dark;
   // parallax effect
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
-  color: white;
+  color: #fff;
   .header-content {
     position: relative;
     text-align: center;

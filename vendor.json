@@ -17,5 +17,6 @@
   "bower_components/scrollreveal/dist/scrollreveal.min.js",
   "bower_components/magnific-popup/dist/magnific-popup.css",
   "bower_components/magnific-popup/dist/jquery.magnific-popup.min.js",
-  "bower_components/parallax/deploy/parallax.min.js"
+  "bower_components/ResponsiveSlides/responsiveSlides.min.js",
+  "bower_components/ResponsiveSlides/responsiveSlides.css"
 ]
