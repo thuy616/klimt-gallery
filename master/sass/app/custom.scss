@@ -10,7 +10,7 @@ header {
 
     figure {
       position: relative;
-      background-color: #000;
+      background-color: #036868;
       display:inline-block;
       overflow:hidden;
       img {
@@ -30,6 +30,9 @@ header {
         }
         @media(min-width: $screen-lg-min) {
          height: 350px;
+        }
+        @media(min-width: $screen-wxga-min){
+          height: 400px;
         }
         @media(min-width: $screen-hd-min) {
          height: 450px;
@@ -63,6 +66,9 @@ header {
           -webkit-transform: scale(1.5);
           transform: scale(1.5);
           transition: opacity 5s, transform 5s;
+          @media(max-width: $screen-xs-max) {
+            opacity: 0.8;
+          }
         }
       }
     }
