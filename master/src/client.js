@@ -7,14 +7,11 @@ import initLoadCss from './components/Common/load-css';
 import routes from './routes';
 import configureStore from "./store.js";
 import { syncHistoryWithStore } from 'react-router-redux';
-import creativeJS from './components/Common/creative';
 
 // Init translation system
 initTranslation();
 // Init css loader (for themes)
 initLoadCss();
-// Init scroll reveal
-creativeJS();
 
 const store = configureStore(window.__INITIAL_STATE__);
 delete window.__INITIAL_STATE__;

@@ -93,7 +93,7 @@ server.ext("onPreResponse", (request, reply) => {
     const webserver = process.env.NODE_ENV === "production"
       ? ""
       : `//localhost:${port}`;
-    const title = DocumentTitle.rewind() || 'Gustav Klimt';
+    const title = DocumentTitle.rewind() || 'My Gallery';
     let output = (`<!doctype html>
     <html lang="en-us">
       <head>
@@ -107,8 +107,8 @@ server.ext("onPreResponse", (request, reply) => {
         <link rel="stylesheet" href="${webserver}/css/app.css"/>
         <link rel="icon" href="${webserver}/img/favicon.png"/>
       </head>
-      <body id="page-top">
-        ${reactString}
+      <body>
+        <div id="app">${reactString}</div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
           window.__UA__ = ${JSON.stringify(request.headers['user-agent'])}
