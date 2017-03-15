@@ -16,14 +16,11 @@ $gray-lighter:           #edf1f2;
 
 // Classic brand colors
 
-$brand-primary:          #0085fe; // descript-blue
+$brand-primary:          #3e3e3e;
 $brand-success:          #27c24c;
 $brand-info:             #23b7e5;
 $brand-warning:          #ff902b;
 $brand-danger:           #f05050;
-
-// descript blue color
-$brand-descript-blue:    #0085fe;
 
 // New brand colors
 
@@ -31,12 +28,12 @@ $brand-inverse:          #131e26;
 $brand-green:            #37bc9b;
 $brand-pink:             #f532e5;
 $brand-purple:           #7266ba;
-$brand-dark:             #3a3f51;
-$brand-yellow:           #fad732;
+$brand-dark:             #202429; // very dark gray
+$brand-yellow:           #F5D76E;
 
 // Brand color Variants
 
-$amountOfLight: 10%;
+$amountOfLight: 20%;
 
 $brand-primary-light:          lighten($brand-primary, $amountOfLight);
 $brand-success-light:          lighten($brand-success, $amountOfLight);
@@ -49,7 +46,6 @@ $brand-pink-light:             lighten($brand-pink, $amountOfLight);
 $brand-purple-light:           lighten($brand-purple, $amountOfLight);
 $brand-dark-light:             lighten($brand-dark, $amountOfLight);
 $brand-yellow-light:           lighten($brand-yellow, $amountOfLight);
-$brand-descript-light:         lighten($brand-descript-blue, $amountOfLight);
 
 $brand-primary-dark:           darken($brand-primary, $amountOfLight);
 $brand-success-dark:           darken($brand-success, $amountOfLight);
@@ -62,7 +58,6 @@ $brand-pink-dark:              darken($brand-pink, $amountOfLight);
 $brand-purple-dark:            darken($brand-purple, $amountOfLight);
 $brand-dark-dark:              darken($brand-dark, $amountOfLight);
 $brand-yellow-dark:            darken($brand-yellow, $amountOfLight);
-$brand-descript-dark:          darken($brand-descript-blue, $amountOfLight);
 
 //== Scaffolding
 //
@@ -347,10 +342,15 @@ $screen-lg-min:              $screen-lg;
 //** Deprecated `$screen-lg-desktop` as of v3.0.1
 $screen-lg-desktop:          $screen-lg-min;
 
+$screen-hd: 1600px;
+$screen-hd-min: $screen-hd;
+
 // So media queries don't overlap when required, provide a maximum
 $screen-xs-max:              ($screen-sm-min - 1);
 $screen-sm-max:              ($screen-md-min - 1);
 $screen-md-max:              ($screen-lg-min - 1);
+$screen-lg-max: ($screen-hd - 1);
+
 
 
 //== Grid system

@@ -15,14 +15,6 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({__CLIENT__: true, __SERVER__: false, __PRODUCTION__: true, __DEV__: false}),
-        new webpack.DefinePlugin({
-          "process.env": {
-            "NODE_ENV": JSON.stringify(process.env.NODE_ENV) || JSON.stringify('production'),
-            "CLIENT_ID": JSON.stringify(process.env.CLIENT_ID) || JSON.stringify('aF2xUgsBQqkLFmXwDKQgP8dLe'),
-            "CLIENT_SECRET": JSON.stringify(process.env.CLIENT_SECRET) || JSON.stringify('BPaXFopxaZZ72wh'),
-            "IMGIX_BASE_URL": JSON.stringify(process.env.IMGIX_BASE_URL) || JSON.stringify('https://detour-assets.imgix.net')
-          }
-        }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.NoErrorsPlugin()
     ],

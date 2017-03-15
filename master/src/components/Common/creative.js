@@ -1,6 +1,4 @@
-(function($, window, document) {
-    "use strict"; // Start of use strict
-
+export default () => {
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
@@ -26,7 +24,7 @@
         offset: {
             top: 100
         }
-    })
+    });
 
     // Initialize and Configure Scroll Reveal Animation
     window.sr = ScrollReveal();
@@ -61,4 +59,4 @@
         }
     });
 
-})(jQuery, window, document); // End of use strict
+}

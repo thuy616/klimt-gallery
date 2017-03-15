@@ -34,6 +34,9 @@
     "loaders.css": "^0.1.2",
     "cropperjs": "^0.8.1",
     "scrollreveal": "^3.3.2",
-    "magnific-popup": "^1.1.0"
+    "magnific-popup": "^1.1.0",
+    "gsap": "^1.19.1",
+    "parallax.js": "^1.4.2",
+    "scrollmagic": "^2.0.5"
   }
 }
