@@ -22,6 +22,15 @@ header {
       overflow:hidden;
       -webkit-transition: background-color 5s ease;
       transition: background-color 5s ease;
+      animation: fadein 2s ease-out;
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1.0;
+        }
+      }
       img {
         opacity: 0.8;
         -webkit-transition: opacity 10s, -webkit-transform 10s;
@@ -87,6 +96,13 @@ header {
 }
 
 .effect-chico {
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
   &:hover {
     background-color: #036868;
     img {
@@ -98,5 +114,29 @@ header {
       opacity: 1;
       transform: scale(1.12);
     }
+  }
+}
+
+.collection {
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    &:after {
+      content: '';
+      flex-grow: 999999999;
+    }
+  }
+  div {
+    margin: 2px;
+    position: relative;
+  }
+  i {
+    display: block;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    vertical-align: bottom;
   }
 }

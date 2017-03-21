@@ -9,9 +9,8 @@ import {connect} from 'react-redux';
 class Home extends Component {
 
   componentWillMount() {
-    this
-      .props
-      .fetchCollections();
+    console.log('componentWillMount() - fetch');
+    this.props.fetchCollections();
   }
 
   render() {
@@ -28,6 +27,7 @@ class Home extends Component {
                     <span>{collection.name}</span>
                   </h2>
                   <p>{collection.about}</p>
+                  <Link to={`/collections/${collection.slug}`}></Link>
                 </figcaption>
               </figure>
             )

@@ -5,7 +5,7 @@ import Joi from 'joi';
 import Hoek from 'hoek';
 
 const collections = require('../../../db.json');
-
+const naturePhotos = require('../../../nature-photos.json');
 
 export default class CollectionController extends BaseController {
 
@@ -54,6 +54,16 @@ export default class CollectionController extends BaseController {
   }
 
   getCollection(request, reply) {
-    // TODO:
+    let collection = _.first(_.filter(collections, { slug: request.params.slug }));
+    if (!collection) { reply({}) }
+    switch (collection.slug) {
+      case "nature":
+        collection.photos = naturePhotos;
+        break;
+      default:
+        collection.photos = naturePhotos;
+        break;
+    }
+    reply(collection);
   }
 }
