@@ -1,16 +1,18 @@
 [{
     "slug": "art",
-    "cover": "../img/header/cover1.jpg",
+    "cover": "http://thuyn.me/gallery/art/cover.jpg",
     "name": "Contemporary Art",
     "about": "The art of today",
     "hero": "",
+    "sort_order": 2,
     "photos": []
 }, {
     "slug": "nature",
-    "cover": "../img/header/cover5.jpg",
+    "cover": "http://thuyn.me/gallery/nature/cover.jpg",
     "name": "Outdoors & Nature",
     "about": "A walk in the woods, hiking, or recreational sports",
     "hero": "http:thuyn.me/gallery/nature/11.jpg",
+    "sort_order": 0,
     "photos": [{
         "original": "http://thuyn.me/gallery/nature/1.jpg",
         "thumbnail": "http://thuyn.me/gallery/nature/1t.jpg"
@@ -118,21 +120,24 @@
         "thumbnail": "http://thuyn.me/gallery/nature/35t.jpg"
     }]
 }, {
-    "slug": "architecture",
-    "cover": "../img/header/cover2.jpg",
+    "slug": "design",
+    "cover": "http://thuyn.me/gallery/design/cover.jpg",
     "name": "Architecture & Design",
     "about": "Buildings, bridges, interesting objects or patterns...",
+    "sort_order": 3,
     "photos": []
 }, {
     "slug": "cities",
-    "cover": "../img/header/cover3.jpg",
+    "cover": "http://thuyn.me/gallery/cities/cover.jpg",
     "name": "Cities & People",
     "about": "From the places that I have travelled to",
+    "sort_order": 1,
     "photos": []
 }, {
     "slug": "portraits",
-    "cover": "../img/header/cover4.jpg",
+    "cover": "http://thuyn.me/gallery/portraits/cover.jpg",
     "name": "Portraits",
     "about": "Faces of friends and family",
+    "sort_order": 4,
     "photos": []
 }]

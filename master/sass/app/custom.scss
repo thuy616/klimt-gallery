@@ -70,12 +70,13 @@ header {
         }
         p {
           opacity: 0;
+          font-weight: lighter;
           margin: 0 auto;
           max-width: 200px;
           -webkit-transform: scale(1.5);
           transform: scale(1.5);
           transition: opacity 5s, transform 5s;
-          @media(max-width: $screen-xs-max) {
+          @media(max-width: $screen-xs) {
             opacity: 0.8;
             font-size: 10px;
           }

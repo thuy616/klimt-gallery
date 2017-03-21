@@ -103,7 +103,6 @@ server.ext("onPreResponse", (request, reply) => {
     routes: routes,
     location: request.path
   }, (error, redirectLocation, renderProps) => {
-    console.log("match to the routes defined in client side");
     if (redirectLocation) {
       reply.redirect(redirectLocation.pathname + redirectLocation.search);
       return;

@@ -11,6 +11,7 @@ let getBaseSchema = () => {
     about: Joi.string().max(255).description('Short description of the collection in markdown format'),
     cover: Joi.string().description("Cover photo in the collection list page"),
     hero: Joi.string().description("Hero photo in the collection detail page"),
+    sort_order: Joi.number().integer().default(0).description("Sort order of the collections list"),
     photos: Joi.array().items(PhotoSchema.Read()).description("Photos in this collection")
   }
 }
@@ -19,7 +20,7 @@ module.exports = {
   ReadList: () => {
     let schema = getBaseSchema();
     delete schema.photos;
-    return Joi.object().keys(schema).label('CollectionList').requiredKeys('slug', 'name', 'about', 'cover');
+    return Joi.object().keys(schema).label('CollectionList').requiredKeys('slug', 'name', 'about', 'cover', 'sort_order');
   },
   Read: () => {
     let schema = getBaseSchema();

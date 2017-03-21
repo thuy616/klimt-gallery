@@ -48,8 +48,9 @@ export default class CollectionController extends BaseController {
   // Route Handlers
 
   getCollections(request, reply) {
-    let response = _.map(collections, item => { return _.pick(item, ['slug', 'name', 'about', 'cover'])})
-    reply(response);
+    let list = _.map(collections, item => { return _.pick(item, ['slug', 'name', 'about', 'cover', 'sort_order'])})
+    const sortedList = _.orderBy(list, ['sort_order'], ['asc']);
+    reply(sortedList);
   }
 
   getCollection(request, reply) {
