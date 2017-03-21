@@ -1,4 +1,3 @@
-import babelPolyfill from "babel-polyfill";
 import {Server} from "hapi";
 import h2o2 from "h2o2";
 import inert from "inert";
@@ -11,6 +10,8 @@ import routesContainer from "./routes";
 import url from "url";
 import Wreck from "wreck";
 import DocumentTitle from "react-document-title";
+import _ from 'lodash';
+import fs from 'fs';
 
 let routes = routesContainer; // make a copy so that it's writable, routesContainer is read-only
 /**
@@ -36,6 +37,18 @@ server.register([
   if (err) {
     throw err;
   }
+
+  // register auth strategies
+  // server.auth.default();
+
+  // Import controllers from the controllers folder
+  const controllers = _.compact(_.map(fs.readdirSync(`${__dirname}/controllers`), file => {
+    if (file.substr(-3) !== '.js') return null;
+    if (file.match(/BaseController/)) return null;
+    const ControllerClass = require('./controllers/' + file).default;
+    return new ControllerClass({server: server});
+  }));
+
   server.start(() => {
     console.info("==> ✅  Server is listening");
     console.info("==> 🌎  Go to " + server.info.uri.toLowerCase());
@@ -53,18 +66,18 @@ server.route({
   }
 });
 
-server.route({
-  method: 'GET',
-  path: '/api/content',
-  handler: (request, reply) => {
-    reply({
-      statusCode: 200,
-      data: {
-        content: 'Congratulations!! It works!!'
-      }
-    })
-  }
-})
+// server.route({
+//   method: 'GET',
+//   path: '/api/content',
+//   handler: (request, reply) => {
+//     reply({
+//       statusCode: 200,
+//       data: {
+//         content: 'Congratulations!! It works!!'
+//       }
+//     })
+//   }
+// })
 
 /**
  * Catch dynamic requests here to fire-up React Router.
