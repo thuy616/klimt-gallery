@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import Spinner from './Spinner';
 
 class Collection extends Component {
 
@@ -20,6 +21,13 @@ class Collection extends Component {
   componentDidMount() {
     this.setState({
       componentMounted: true
+    });
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: ($($anchor.attr('href')).offset().top - 50)
+        }, 1250, 'easeInOutExpo');
+        event.preventDefault();
     });
   }
 
@@ -43,19 +51,38 @@ class Collection extends Component {
     // }
 
     return (
-      <div className="collection">
-        <section>
-          {photos.map(p => {
-            const width = p.width*200/p.height;
-            const paddingBottom = p.height/p.width*100;
-            return (
-              <div key={p.slug} style={{width:`${width}px`,flexGrow:width}}>
-                <i style={{paddingBottom:`${paddingBottom}%`}}></i>
-                <img src={p.thumbnail} />
+      <div>
+      { this.props.collection ?
+        (
+          <div className="collection-container">
+            <section className="collection-hero">
+              <img src={this.props.collection.hero} />
+              <div className="collection-hero-content">
+                <div className="collection-hero-content-inner">
+                  <h2>Ipsum lorem</h2>
+                  <p>
+                    Ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+                </div>
+                <a href="#collection-grid" className="btn-circle page-scroll">
+                  <i className="fa fa-angle-double-down animated"></i>
+                </a>
               </div>
-            )
-          })}
-        </section>
+            </section>
+            <section className="collection-grid" id="collection-grid">
+              {photos.map(p => {
+                const width = p.width*200/p.height;
+                const paddingBottom = p.height/p.width*100;
+                return (
+                  <div key={p.slug} style={{width:`${width}px`,flexGrow:width}}>
+                    <i style={{paddingBottom:`${paddingBottom}%`}}></i>
+                    <img src={p.thumbnail} />
+                  </div>
+                )
+              })}
+            </section>
+          </div>
+        ) : <Spinner />}
       </div>
     )
   }
