@@ -3,177 +3,34 @@
     "cover": "http://thuyn.me/gallery/art/cover.jpg",
     "name": "Contemporary Art",
     "about": "The art of today",
-    "hero": "",
-    "sort_order": 2,
-    "photos": []
+    "hero": "http:thuyn.me/gallery/art/1.jpg",
+    "sort_order": 2
 }, {
     "slug": "nature",
     "cover": "http://thuyn.me/gallery/nature/cover.jpg",
     "name": "Outdoors & Nature",
     "about": "A walk in the woods, hiking, or recreational sports",
     "hero": "http:thuyn.me/gallery/nature/10.jpg",
-    "sort_order": 0,
-    "photos": [{
-        "original": "http://thuyn.me/gallery/nature/1.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/1t.jpg",
-        "slug": "1"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/2.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/2t.jpg",
-        "slug": "2"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/3.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/3t.jpg",
-        "slug": "3"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/4.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/4t.jpg",
-        "slug": "4"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/5.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/5t.jpg",
-        "slug": "5"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/6.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/6t.jpg",
-        "slug": "6"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/7.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/7t.jpg",
-        "slug": "7"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/8.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/8t.jpg",
-        "slug": "8"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/9.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/9t.jpg",
-        "slug": "9"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/10.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/10t.jpg",
-        "slug": "10"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/11.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/11t.jpg",
-        "slug": "11"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/12.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/12t.jpg",
-        "slug": "12"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/13.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/13t.jpg",
-        "slug": "13"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/14.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/14t.jpg",
-        "slug": "14"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/15.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/15t.jpg",
-        "slug": "15"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/16.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/16t.jpg",
-        "slug": "16"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/17.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/17t.jpg",
-        "slug": "17"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/18.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/18t.jpg",
-        "slug": "18"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/19.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/19t.jpg",
-        "slug": "19"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/20.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/20t.jpg",
-        "slug": "20"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/21.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/21t.jpg",
-        "slug": "21"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/22.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/22t.jpg",
-        "slug": "22"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/23.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/23t.jpg",
-        "slug": "23"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/24.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/24t.jpg",
-        "slug": "24"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/25.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/25t.jpg",
-        "slug": "25"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/26.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/26t.jpg",
-        "slug": "26"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/27.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/27t.jpg",
-        "slug": "27"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/28.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/28t.jpg",
-        "slug": "28"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/29.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/29t.jpg",
-        "slug": "29"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/30.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/30t.jpg",
-        "slug": "30"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/31.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/31t.jpg",
-        "slug": "31"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/32.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/32t.jpg",
-        "slug": "32"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/33.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/33t.jpg",
-        "slug": "33"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/34.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/34t.jpg",
-        "slug": "34"
-    }, {
-        "original": "http://thuyn.me/gallery/nature/35.jpg",
-        "thumbnail": "http://thuyn.me/gallery/nature/35t.jpg",
-        "slug": "35"
-    }]
-
+    "sort_order": 0
 }, {
     "slug": "design",
     "cover": "http://thuyn.me/gallery/design/cover.jpg",
     "name": "Architecture & Design",
     "about": "Buildings, bridges, interesting objects or patterns...",
-    "sort_order": 3,
-    "photos": []
+    "hero": "http:thuyn.me/gallery/design/1.jpg",
+    "sort_order": 3
 }, {
     "slug": "cities",
     "cover": "http://thuyn.me/gallery/cities/cover.jpg",
     "name": "Cities & People",
     "about": "From the places that I have travelled to",
-    "sort_order": 1,
-    "photos": []
+    "hero": "http:thuyn.me/gallery/cities/1.jpg",
+    "sort_order": 1
 }, {
     "slug": "portraits",
     "cover": "http://thuyn.me/gallery/portraits/cover.jpg",
     "name": "Portraits",
     "about": "Faces of friends and family",
-    "sort_order": 4,
-    "photos": []
+    "hero": "http:thuyn.me/gallery/portraits/1.jpg",
+    "sort_order": 4
 }]
