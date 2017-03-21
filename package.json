@@ -9,7 +9,7 @@
     "url": "https://github.com/detourhub/detour-decentral.git"
   },
   "scripts": {
-    "start": "node ./node_modules/babel-cli/bin/babel-node.js master/src/server.js",
+    "start": "NODE_PATH=\"./master\" node ./babel.server",
     "test": "mocha --compilers js:babel-core/register --require .master/test/test_helper.js --recursive .master/test",
     "test:watch": "npm run test -- --watch",
     "watch-client": "gulp watch",

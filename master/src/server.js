@@ -14,6 +14,7 @@ import _ from 'lodash';
 import fs from 'fs';
 
 let routes = routesContainer; // make a copy so that it's writable, routesContainer is read-only
+
 /**
  * Create Redux store, and get intitial state.
  */
@@ -24,7 +25,13 @@ const initialState = store.getState();
  * Start Hapi server
  */
 const port = process.env.PORT || 8080
-const server = new Server();
+const server = new Server({
+  connections: {
+    router: {
+      stripTrailingSlash: true
+    }
+  }
+});
 if (process.env.NODE_ENV === "production") {
   server.connection({port: port});
 } else {
@@ -66,30 +73,37 @@ server.route({
   }
 });
 
-// server.route({
-//   method: 'GET',
-//   path: '/api/content',
-//   handler: (request, reply) => {
-//     reply({
-//       statusCode: 200,
-//       data: {
-//         content: 'Congratulations!! It works!!'
-//       }
-//     })
-//   }
-// })
+server.route({
+  method: 'GET',
+  path: '/api/content',
+  handler: (request, reply) => {
+    reply({
+      statusCode: 200,
+      data: {
+        content: 'Congratulations!! It works!!'
+      }
+    })
+  }
+})
 
 /**
  * Catch dynamic requests here to fire-up React Router.
  */
+
 server.ext("onPreResponse", (request, reply) => {
   if (typeof request.response.statusCode !== "undefined") {
     return reply.continue();
   }
+
+  if (request.path.match(/\/(api.+)/)) {
+    return reply.continue();
+  }
+
   match({
     routes: routes,
     location: request.path
   }, (error, redirectLocation, renderProps) => {
+    console.log("match to the routes defined in client side");
     if (redirectLocation) {
       reply.redirect(redirectLocation.pathname + redirectLocation.search);
       return;
@@ -133,3 +147,5 @@ server.ext("onPreResponse", (request, reply) => {
     reply(output);
   });
 });
+
+module.exports = server;

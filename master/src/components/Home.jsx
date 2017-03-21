@@ -3,9 +3,18 @@ import {Row, Col} from 'react-bootstrap';
 import { Link } from 'react-router';
 import ImageGallery from 'react-image-gallery';
 import _ from 'lodash';
+import * as actions from '../actions';
+import { connect } from 'react-redux';
 
-export default class Home extends Component {
+class Home extends Component {
+
+  componentWillMount() {
+    this.props.fetchContent();
+    this.props.fetchCollections();
+  }
+
   render() {
+    console.log("this.props.content", this.props.content);
     const collections = [
       {
         cover: '../img/header/cover1.jpg',
@@ -70,3 +79,12 @@ export default class Home extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    content: state.content.secretContent,
+    collections: state.content.collections
+  }
+}
+
+export default connect(mapStateToProps, actions)(Home);

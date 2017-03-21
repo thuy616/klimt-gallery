@@ -2,8 +2,10 @@ import BaseController from './BaseController';
 import CollectionSchema from '../schemas/CollectionSchema';
 import _ from 'lodash';
 import Joi from 'joi';
-import db from '../../../db.json';
 import Hoek from 'hoek';
+
+const collections = require('../../../db.json');
+
 
 export default class CollectionController extends BaseController {
 
@@ -46,9 +48,8 @@ export default class CollectionController extends BaseController {
   // Route Handlers
 
   getCollections(request, reply) {
-    console.log("db", db.collections.length);
-    let collections = _.map(db.collections, item => { return _.pick(item, ['slug', 'name', 'about', 'cover'])})
-    reply(collections);
+    let response = _.map(collections, item => { return _.pick(item, ['slug', 'name', 'about', 'cover'])})
+    reply(response);
   }
 
   getCollection(request, reply) {
