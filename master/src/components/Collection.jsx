@@ -3,6 +3,11 @@ import * as actions from '../actions';
 import { connect } from 'react-redux';
 
 class Collection extends Component {
+
+  componentWillMount() {
+    this.props.fetchCollection(this.props.params.slug);
+  }
+
   render() {
     return (
       <div>test</div>

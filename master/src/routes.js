@@ -3,14 +3,16 @@ import { Router, browserHistory, Route, IndexRoute, IndexRedirect } from 'react-
 import NotFound from './components/NotFound';
 import Base from './components/main';
 import Home from './components/Home';
-import DynamicContent from './containers/DynamicContent/DynamicContent';
+import Collection from './components/Collection';
 
 export default (
   <Router>
 
     <Route path="/" component={Base}>
       {/* Default route*/}
-      <IndexRoute component={Home} />
+      <IndexRedirect to="collections" />
+      <Route path="collections" component={Home} />
+      <Route path="collections/:slug" component={Collection} />
     </Route>
 
     <Route path="*" component={NotFound} />

@@ -54,6 +54,7 @@ export default class CollectionController extends BaseController {
   }
 
   getCollection(request, reply) {
-    // TODO:
+    let collection = _.first(_.filter(collections, { slug: request.params.slug }));
+    reply(collection);
   }
 }
