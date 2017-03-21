@@ -1,4 +1,3 @@
-import babelPolyfill from "babel-polyfill";
 import {Server} from "hapi";
 import h2o2 from "h2o2";
 import inert from "inert";
@@ -11,8 +10,11 @@ import routesContainer from "./routes";
 import url from "url";
 import Wreck from "wreck";
 import DocumentTitle from "react-document-title";
+import _ from 'lodash';
+import fs from 'fs';
 
 let routes = routesContainer; // make a copy so that it's writable, routesContainer is read-only
+
 /**
  * Create Redux store, and get intitial state.
  */
@@ -23,7 +25,13 @@ const initialState = store.getState();
  * Start Hapi server
  */
 const port = process.env.PORT || 8080
-const server = new Server();
+const server = new Server({
+  connections: {
+    router: {
+      stripTrailingSlash: true
+    }
+  }
+});
 if (process.env.NODE_ENV === "production") {
   server.connection({port: port});
 } else {
@@ -36,6 +44,18 @@ server.register([
   if (err) {
     throw err;
   }
+
+  // register auth strategies
+  // server.auth.default();
+
+  // Import controllers from the controllers folder
+  const controllers = _.compact(_.map(fs.readdirSync(`${__dirname}/controllers`), file => {
+    if (file.substr(-3) !== '.js') return null;
+    if (file.match(/BaseController/)) return null;
+    const ControllerClass = require('./controllers/' + file).default;
+    return new ControllerClass({server: server});
+  }));
+
   server.start(() => {
     console.info("==> ✅  Server is listening");
     console.info("==> 🌎  Go to " + server.info.uri.toLowerCase());
@@ -69,10 +89,16 @@ server.route({
 /**
  * Catch dynamic requests here to fire-up React Router.
  */
+
 server.ext("onPreResponse", (request, reply) => {
   if (typeof request.response.statusCode !== "undefined") {
     return reply.continue();
   }
+
+  if (request.path.match(/\/(api.+)/)) {
+    return reply.continue();
+  }
+
   match({
     routes: routes,
     location: request.path
@@ -120,3 +146,5 @@ server.ext("onPreResponse", (request, reply) => {
     reply(output);
   });
 });
+
+module.exports = server;

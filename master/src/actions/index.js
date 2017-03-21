@@ -1,16 +1,38 @@
 import fetch from 'isomorphic-fetch';
 import * as ActionTypes from './types';
 
-export function fetchContent() {
-  return (dispatch) => {
-    return fetch(`api/content`)
+let apiUri = 'api';
+
+if(process.env.NODE_ENV==='development') {
+  apiUri = 'http://localhost:8080/api';
+} else {
+  if (__CLIENT__) {
+    const { protocol, hostname, port } = window.location;
+    apiUri = `${protocol}//${hostname}:${port}/api`;
+  }
+}
+
+export function fetchCollections() {
+  let statusCode;
+  return dispatch => {
+    return fetch(`${apiUri}/collections`)
+    .then(response => {
+      statusCode = response.status;
+      return response;
+    })
     .then(response => response.json())
     .then(body => {
-      console.log("body", body);
-      dispatch({
-        type: ActionTypes.FetchContent,
-        payload: body.data.content
-      })
+      if (statusCode === 200) {
+        dispatch({
+          type: ActionTypes.FetchCollections,
+          payload: body
+        });
+      } else {
+        dispatch({
+          type: ActionTypes.FetchError,
+          payload: body
+        })
+      }
     })
   }
 }
