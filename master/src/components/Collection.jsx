@@ -64,10 +64,11 @@ class Collection extends Component {
                   <p>
                     Ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                   </p>
+                  <a href="#collection-grid" className="btn-circle page-scroll" style={{marginTop: '28px'}}>
+                    <i className="fa fa-angle-double-down animated"></i>
+                  </a>
                 </div>
-                <a href="#collection-grid" className="btn-circle page-scroll">
-                  <i className="fa fa-angle-double-down animated"></i>
-                </a>
+
               </div>
             </section>
             <section className="collection-grid" id="collection-grid">
