@@ -9,7 +9,6 @@ import {connect} from 'react-redux';
 class Home extends Component {
 
   componentWillMount() {
-    console.log('componentWillMount() - fetch');
     this.props.fetchCollections();
   }
 

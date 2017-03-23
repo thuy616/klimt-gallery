@@ -35,6 +35,7 @@ class Collection extends Component {
     const photos = this.props.collection ? this.props.collection.photos : [];
     // let loadedPhotos = photos;
     // if (this.state.componentMounted) {
+    //   let count = 0;
     //   for (let i=0; i<photos.length; i++) {
     //     let p = photos[i];
     //     let img = new Image();
@@ -42,8 +43,8 @@ class Collection extends Component {
     //     img.onload = () => {
     //       loadedPhotos[i].height = img.height;
     //       loadedPhotos[i].width = img.width;
-    //       // console.log("onload loadedPhotos[i]", loadedPhotos[i]);
-    //       if (i == photos.length - 1) {
+    //       count += 1;
+    //       if (count == photos.length - 1) {
     //         console.log('loadedPhotos:', JSON.stringify(loadedPhotos));
     //       }
     //     }
