@@ -7,6 +7,7 @@ import Hoek from 'hoek';
 const collections = require('../../../db.json');
 const naturePhotos = require('../../../nature-photos.json');
 const citiesPhotos = require('../../../cities-photos.json');
+const portraitsPhotos = require('../../../portraits-photos.json');
 
 export default class CollectionController extends BaseController {
 
@@ -63,6 +64,9 @@ export default class CollectionController extends BaseController {
         break;
       case "cities":
         collection.photos = citiesPhotos;
+        break;
+      case "portraits":
+        collection.photos = portraitsPhotos;
         break;
       default:
         collection.photos = naturePhotos;
