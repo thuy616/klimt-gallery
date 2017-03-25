@@ -1,7 +1,7 @@
 [{
     "slug": "art",
     "cover": "http://thuyn.me/gallery/art/cover.jpg",
-    "name": "Contemporary Art",
+    "name": "Modern & Contemporary Art",
     "about": "The art of today",
     "hero": "http://thuyn.me/gallery/art/1.jpg",
     "sort_order": 2
@@ -31,6 +31,6 @@
     "cover": "http://thuyn.me/gallery/portraits/cover.jpg",
     "name": "Portraits",
     "about": "Faces of friends and family",
-    "hero": "http://thuyn.me/gallery/portraits/1.jpg",
+    "hero": "http://thuyn.me/gallery/portraits/hero.jpg",
     "sort_order": 4
 }]
