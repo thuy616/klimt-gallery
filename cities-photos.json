@@ -169,7 +169,9 @@
 }, {
 	"original": "http://thuyn.me/gallery/cities/29.jpg",
 	"thumbnail": "http://thuyn.me/gallery/cities/29t.jpg",
-	"slug": "29"
+	"slug": "29",
+	"height": "1365",
+	"width": "2048"
 }, {
 	"original": "http://thuyn.me/gallery/cities/30.jpg",
 	"thumbnail": "http://thuyn.me/gallery/cities/30t.jpg",

@@ -79,7 +79,9 @@
 }, {
     "original": "http://thuyn.me/gallery/portraits/13.jpg",
     "thumbnail": "http://thuyn.me/gallery/portraits/13t.jpg",
-    "slug": "13"
+    "slug": "13",
+    "height": 1481,
+    "width": 2221
 }, {
     "original": "http://thuyn.me/gallery/portraits/14.jpg",
     "thumbnail": "http://thuyn.me/gallery/portraits/14t.jpg",
