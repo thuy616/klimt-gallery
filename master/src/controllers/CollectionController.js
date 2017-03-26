@@ -8,6 +8,8 @@ const collections = require('../../../db.json');
 const naturePhotos = require('../../../nature-photos.json');
 const citiesPhotos = require('../../../cities-photos.json');
 const portraitsPhotos = require('../../../portraits-photos.json');
+const artPhotos = require('../../../art-photos.json');
+const designPhotos = require('../../../design-photos.json');
 
 export default class CollectionController extends BaseController {
 
@@ -67,6 +69,12 @@ export default class CollectionController extends BaseController {
         break;
       case "portraits":
         collection.photos = portraitsPhotos;
+        break;
+      case "art":
+        collection.photos = artPhotos;
+        break;
+      case "design":
+        collection.photos = designPhotos;
         break;
       default:
         collection.photos = naturePhotos;
