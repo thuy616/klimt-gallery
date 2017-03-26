@@ -33,7 +33,7 @@ class Collection extends Component {
 
   render() {
     const photos = this.props.collection ? this.props.collection.photos : [];
-    // let loadedPhotos = photos;
+    let loadedPhotos = photos;
     // if (this.state.componentMounted) {
     //   let count = 0;
     //   for (let i=0; i<photos.length; i++) {
