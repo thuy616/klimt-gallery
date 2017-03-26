@@ -4,6 +4,7 @@ import NotFound from './components/NotFound';
 import Base from './components/main';
 import Home from './components/Home';
 import Collection from './components/Collection';
+import Slideshow from './components/Slideshow';
 
 export default (
   <Router>
@@ -13,6 +14,8 @@ export default (
       <IndexRedirect to="collections" />
       <Route path="collections" component={Home} />
       <Route path="collections/:slug" component={Collection} />
+      <Route path="collections/:slug/slideshow" component={Slideshow} />
+
     </Route>
 
     <Route path="*" component={NotFound} />

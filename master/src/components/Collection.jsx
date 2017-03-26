@@ -3,6 +3,7 @@ import * as actions from '../actions';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import Spinner from './Spinner';
+import { Link } from 'react-router';
 
 class Collection extends Component {
 
@@ -10,7 +11,8 @@ class Collection extends Component {
     super(props);
     this.state = {
       componentMounted: false,
-      photos: []
+      photos: [],
+      showSlideshow: false
     }
   }
 
@@ -72,19 +74,22 @@ class Collection extends Component {
               </div>
             </section>
             <section className="collection-grid" id="collection-grid">
-              {photos.map(p => {
+              {photos.map((p, index) => {
                 const width = p.width*200/p.height;
                 const paddingBottom = p.height/p.width*100;
                 return (
-                  <div key={p.slug} style={{width:`${width}px`,flexGrow:width}}>
-                    <i style={{paddingBottom:`${paddingBottom}%`}}></i>
-                    <img src={p.thumbnail} />
-                  </div>
+                  <Link to={`/collections/${this.props.collection.slug}/slideshow?active=${index}`}>
+                    <div key={p.slug} style={{width:`${width}px`,flexGrow:width}}>
+                      <i style={{paddingBottom:`${paddingBottom}%`}}></i>
+                      <img src={p.thumbnail} />
+                    </div>
+                  </Link>
                 )
               })}
             </section>
           </div>
         ) : <Spinner />}
+
       </div>
     )
   }
