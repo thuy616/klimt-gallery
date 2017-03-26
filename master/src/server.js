@@ -130,6 +130,8 @@ server.ext("onPreResponse", (request, reply) => {
         <title>${title}</title>
         <link rel="stylesheet" href="${webserver}/css/bootstrap.css"/>
         <link rel="stylesheet" href="${webserver}/css/vendor.bundle.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         <link rel="stylesheet" href="${webserver}/css/app.css"/>
         <link rel="icon" href="${webserver}/img/favicon.png"/>
       </head>
