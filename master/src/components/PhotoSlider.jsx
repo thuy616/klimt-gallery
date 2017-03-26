@@ -10,7 +10,7 @@ export default class PhotoSlider extends Component {
 
     const settings = {
       customPaging: function(i) {
-        return <a><img src={photos[i].original} height='30' width='30' /></a>
+        return <a><img src={photos[i].thumbnail} height='30' width='30' /></a>
       },
       dots: true,
       dotsClass: 'slick-dots slick-thumb',
