@@ -15,6 +15,11 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({__CLIENT__: true, __SERVER__: false, __PRODUCTION__: true, __DEV__: false}),
+        new webpack.DefinePlugin({
+          "process.env": {
+             NODE_ENV: JSON.stringify("production")
+           }
+        });
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.NoErrorsPlugin()
     ],
