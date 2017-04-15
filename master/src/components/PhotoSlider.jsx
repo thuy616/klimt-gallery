@@ -20,22 +20,35 @@ export default class PhotoSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       centerMode: true,
-      autoplay: false
+      autoplay: false,
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          dots: false
+        }
+      }]
+
     };
     return (
-      <div className="content">
-        <Slider {...settings}>
-
-          {photos.map(photo => {
-            return (<div key={photo.slug}><img src={photo.original} /></div>)
-          })}
-          {/*
-          <div><img src='https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract01.jpg'/></div>
-          <div><img src='https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract02.jpg'/></div>
-          <div><img src='https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract03.jpg'/></div>
-          <div><img src='https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg'/></div>
-          */}
-        </Slider>
+      <div>
+        <a href="#" style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px"
+        }}><span className="fa fa-2x fa-times-circle-o"></span></a>
+        <div className="content">
+          <div className="slide-container">
+            <Slider {...settings}>
+              {photos.map(photo => {
+                return (
+                  <div key={photo.slug}>
+                    <img src={photo.original} />
+                  </div>
+                )
+              })}
+            </Slider>
+            </div>
+        </div>
       </div>
     )
   }

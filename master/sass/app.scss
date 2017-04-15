@@ -2,6 +2,10 @@
 @import "app/variables";
 // @import "app/slick";
 // @import "app/slick-theme";
+@import "bootstrap/bootstrap/_mixins";
+@import "app/utils-definitions";
+@import "app/utils";
+@import "app/mixins";
 @import "app/custom";
 // @import "app/responsive-slides-theme";
 // @import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
