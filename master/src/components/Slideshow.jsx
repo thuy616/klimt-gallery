@@ -20,6 +20,7 @@ class Slideshow extends Component {
         <div>
         {this.props.collection ? (
           <PhotoSlider
+            collectionSlug={this.props.collection.slug}
             photos={this.props.collection.photos}
             activePhoto={activePhoto}
           />
