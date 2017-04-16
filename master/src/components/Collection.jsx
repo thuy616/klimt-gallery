@@ -58,15 +58,14 @@ class Collection extends Component {
             </section>
             <section className="collection-grid" id="collection-grid">
               {photos.map((p, index) => {
-                const width = p.width*200/p.height;
-                const paddingBottom = p.height/p.width*100;
+                const width = (p.width*200/p.height).toFixed(0);
+                const paddingBottom = ((p.height/p.width)*100).toFixed(2);
                 return (
-                  <Link to={`/collections/${collection.slug}/slideshow?active=${index}`}>
                     <div key={p.slug} style={{width:`${width}px`,flexGrow:width}}>
+                      <Link to={`/collections/${this.props.params.slug}/slideshow?active=${index}`}></Link>
                       <i style={{paddingBottom:`${paddingBottom}%`}}></i>
                       <img src={p.thumbnail} />
                     </div>
-                  </Link>
                 )
               })}
             </section>
