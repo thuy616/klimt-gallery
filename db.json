@@ -3,28 +3,28 @@
     "cover": "http://thuyn.me/gallery/art/cover.jpg",
     "name": "Modern & Contemporary Art",
     "about": "The art of today",
-    "hero": "http://thuyn.me/gallery/art/1.jpg",
+    "hero": "http://thuyn.me/gallery/art/1t.jpg",
     "sort_order": 2
 }, {
     "slug": "nature",
     "cover": "http://thuyn.me/gallery/nature/cover.jpg",
     "name": "Outdoors & Nature",
     "about": "A walk in the woods, hiking, or recreational sports",
-    "hero": "http://thuyn.me/gallery/nature/10.jpg",
+    "hero": "http://thuyn.me/gallery/nature/10t.jpg",
     "sort_order": 0
 }, {
     "slug": "design",
     "cover": "http://thuyn.me/gallery/design/cover.jpg",
     "name": "Architecture & Design",
     "about": "Buildings, bridges, interesting objects or patterns...",
-    "hero": "http://thuyn.me/gallery/design/1.jpg",
+    "hero": "http://thuyn.me/gallery/design/1t.jpg",
     "sort_order": 3
 }, {
     "slug": "cities",
     "cover": "http://thuyn.me/gallery/cities/cover.jpg",
     "name": "Cities & People",
     "about": "From the places that I have travelled to",
-    "hero": "http://thuyn.me/gallery/cities/7.jpg",
+    "hero": "http://thuyn.me/gallery/cities/7t.jpg",
     "sort_order": 1
 }, {
     "slug": "portraits",
