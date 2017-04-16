@@ -80,8 +80,8 @@
     "original": "http://thuyn.me/gallery/portraits/13.jpg",
     "thumbnail": "http://thuyn.me/gallery/portraits/13t.jpg",
     "slug": "13",
-    "height": 1481,
-    "width": 2221
+    "height": 882,
+    "width": 588
 }, {
     "original": "http://thuyn.me/gallery/portraits/14.jpg",
     "thumbnail": "http://thuyn.me/gallery/portraits/14t.jpg",
@@ -98,6 +98,18 @@
     "original": "http://thuyn.me/gallery/portraits/16.jpg",
     "thumbnail": "http://thuyn.me/gallery/portraits/16t.jpg",
     "slug": "16",
+    "height": 1000,
+    "width": 1500
+}, {
+    "original": "http://thuyn.me/gallery/portraits/17.jpg",
+    "thumbnail": "http://thuyn.me/gallery/portraits/17t.jpg",
+    "slug": "17",
+    "height": 1000,
+    "width": 1500
+}, {
+    "original": "http://thuyn.me/gallery/portraits/18.jpg",
+    "thumbnail": "http://thuyn.me/gallery/portraits/18t.jpg",
+    "slug": "18",
     "height": 1000,
     "width": 1500
 }]
